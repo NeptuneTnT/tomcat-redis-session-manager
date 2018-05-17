@@ -19,8 +19,11 @@
 用法 :
 1.准备一个新的tomcat
 2.将jar包放入tomcat/lib目录下
-![jar.png-10.5kB][1]
-  [1]: http://static.zybuluo.com/Liuxiansen/zlk69mvlowodv353t8etz8c5/jar.png
+```
+  1.tomcat-redis-session-manager-master-2.0.0.jar
+  2.commons-pool2.jar
+  3.jedis-2.5.2.jar
+```
 3.修改conf/context.xml配置文件
 ```
 <Valve className="com.orangefunction.tomcat.redissessions.RedisSessionHandlerValve" />        
