@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html class="theme theme-white">
+<head>
+<meta charset="utf-8">
+<title>Session共享</title>
+<link href="https://www.zybuluo.com/static/assets/template-theme-white.css" rel="stylesheet" media="screen">
+<style type="text/css">.wmd-input, .wmd-input:focus, #md-section-helper {font-size: 15px !important;line-height: 25px !important;font-family: Consolas !important;}
+#wmd-preview {font-size: 15px !important;line-height: 25px !important;font-family: Source Code Pro !important;}
+
+#wmd-preview h1  {
+    color: #0077bb; /* 将标题改为蓝色 */
+}</style>
+</head>
+<body class="theme theme-white">
+<div id="wmd-preview" class="wmd-preview wmd-preview-full-reader"><div class="md-section-divider"></div><div class="md-section-divider"></div><h3 data-anchor-id="bub5" id="session共享">Session共享</h3><p data-anchor-id="vbys"><code class="">工具</code> <code class="">session</code></p><hr><p data-anchor-id="pm1g">目的 :  </p><blockquote data-anchor-id="xhep" class="white-blockquote">
+  <p>实现两个以上tomcat之间的session共享</p>
+</blockquote><p data-anchor-id="rgim">基于 :</p><ul data-anchor-id="zveb">
+<li class="todo-list-item"><i class="icon-check-sign"></i>tomcat-redis-session-manager</li>
+<li class="todo-list-item"><i class="icon-check-sign"></i>Redis</li>
+</ul><hr><p data-anchor-id="kp96">用法 : <br>
+1.准备一个新的tomcat <br>
+2.将jar包放入tomcat/lib目录下 <br>
+<img src="http://static.zybuluo.com/Liuxiansen/zlk69mvlowodv353t8etz8c5/jar.png" alt="jar.png-10.5kB"> <br>
+3.修改conf/context.xml配置文件</p><div class="md-section-divider"></div><pre class="prettyprint linenums prettyprinted" data-anchor-id="fkg3"><ol class="linenums"><li class="L0"><code><span class="tag">&lt;Valve</span><span class="pln"> </span><span class="atn">className</span><span class="pun">=</span><span class="atv">"com.orangefunction.tomcat.redissessions.RedisSessionHandlerValve"</span><span class="pln"> </span><span class="tag">/&gt;</span><span class="pln">        </span></code></li><li class="L1"><code><span class="tag">&lt;Manager</span><span class="pln"> </span><span class="atn">className</span><span class="pun">=</span><span class="atv">"com.orangefunction.tomcat.redissessions.RedisSessionManager"</span><span class="pln"> </span></code></li><li class="L2"><code><span class="pln">        </span><span class="atn">host</span><span class="pun">=</span><span class="atv">"127.0.0.1"</span><span class="pln">       </span></code></li><li class="L3"><code><span class="pln">        </span><span class="atn">port</span><span class="pun">=</span><span class="atv">"6379"</span><span class="pln">           </span></code></li><li class="L4"><code><span class="pln">      </span><span class="atn">maxInactiveInterval</span><span class="pun">=</span><span class="atv">"60"</span><span class="pln"> </span><span class="tag">/&gt;</span></code></li></ol></pre><p data-anchor-id="jqch">4.启动tomcat,session已经存到Redis中,SESSIONID为key</p></div>
+</body>
+</html>
